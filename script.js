@@ -1,7 +1,7 @@
 const container = document.getElementById("b-container")
 let count = document.getElementById("count")
 
-let tracomStudents= [
+let data= [
     {
         id: 1,
         name: "mikey",
@@ -27,7 +27,12 @@ let tracomStudents= [
         comment:""
     }
 ]
+if(!localStorage.getItem("tracomStudents")){
 
+    localStorage.setItem("tracomStudents",JSON.stringify(data))
+}
+let stringData=localStorage.getItem("tracomStudents")
+let tracomStudents = JSON.parse(stringData)
 function populateCards(){
     let totalStudents=""
     tracomStudents.map((e)=>{
@@ -117,6 +122,10 @@ function getClickedCard(e){
         obj.likes +=1
 
         tracomStudents[index-1] = obj
+
+        //Update localstorage
+        localStorage.setItem("tracomStudents",JSON.stringify(tracomStudents))
+
         populateCards()
         console.log("XXXXXXXXXXXXXXXXXXXXXX",obj)
 
