@@ -27,12 +27,16 @@ let data= [
         comment:""
     }
 ]
+
+// guard clause
 if(!localStorage.getItem("tracomStudents")){
 
     localStorage.setItem("tracomStudents",JSON.stringify(data))
 }
 let stringData=localStorage.getItem("tracomStudents")
 let tracomStudents = JSON.parse(stringData)
+
+
 function populateCards(){
     let totalStudents=""
     tracomStudents.map((e)=>{
@@ -120,7 +124,6 @@ function getClickedCard(e){
 
       const obj = tracomStudents.find(item => item.id ===index)
         obj.likes +=1
-
         tracomStudents[index-1] = obj
 
         //Update localstorage
