@@ -1,16 +1,14 @@
-@import url("https://cdn.jsdelivr.net/npm/proxima-nova-font@1.0.0/dist/css/proxima-nova.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
-:root{
+* {
     padding: 0px;
     margin: 0px;
-
     --avatar-gradient:linear-gradient(45deg,#405de6,#5851db, #833ab4, #c13584,#e1306c, #fd1d1d);
 }
 
 body{
     margin: 0;
-    font-family: "Proxima Nova", "Arial", sans-serif;
+    font-family:  'Roboto', sans-serif; 
   background-color: #fafafa;
 }
 .header-section {
@@ -75,9 +73,10 @@ nav a:hover {
     height: 100vh; */
     gap: 20px;
     flex-wrap: wrap;
-
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    margin: 0px;
+    margin: 0 auto;
     /* font-family:   'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 }
 
@@ -198,4 +197,41 @@ nav a:hover {
     width: inherit;
     object-fit: cover;
     height: 250px;
+}
+
+.fa-heart:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.searchuser{
+    border: 1px solid red;
+    width: 100vw;
+    height: 20px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; 
+}
+
+.search-label {
+  display: none; 
+}
+
+.search-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  width: 300px; 
+}
+
+.search-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
 }

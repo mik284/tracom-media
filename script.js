@@ -13,7 +13,7 @@ let data= [
      {
         id: 2,
         name: "JoyAnn",
-        status:"software dev",
+        status:"farmer",
         postImg:["/post.jpg", "/images/cat.jpg"],
         likes: 0,
         comment:""
@@ -25,16 +25,10 @@ let data= [
         postImg:["/post.jpg", "/images/cat.jpg"],
         likes: 0,
         comment:""
-    },
-     {
-        id: 4,
-        name: "Brian",
-        status:"software dev",
-        postImg:["/post.jpg", "/images/cat.jpg"],
-        likes: 0,
-        comment:""
     }
 ]
+
+// guard clause
 if(!localStorage.getItem("tracomStudents")){
 
     localStorage.setItem("tracomStudents",JSON.stringify(data))
@@ -47,11 +41,10 @@ let stringData=localStorage.getItem("tracomStudents")
 let tracomStudents = JSON.parse(stringData)
 
 
-function populateCards(){
+function populateCards(students = tracomStudents){
     let totalStudents=""
-    tracomStudents.map((e)=>{
-    let postCard =
-     `<div class="b-card card">
+    students.forEach((e)=>{
+    let postCard = `<div class="b-card card">
             <div class="b-head-section">
               <div class="b-head-info">
                 <div class="b-avatar">
@@ -125,20 +118,17 @@ function getClickedCard(e){
   
     
     if(e.target.classList.contains("fa-solid", "fa-heart")){
-        for (let i = 0; i < tracomStudents.length-1; i++) {
-            const cardID = 'card_' + i;
+        // for (let i = 0; i < tracomStudents.length-1; i++) {
+            // const cardID = 'card_' + i;
             // Target the card by its dynamic ID
-            const cardElement = document.getElementById(cardID);
+            // const cardElement = document.getElementById(cardID);
             
             // Now you can work with the specific card element
-    if (cardElement) {
+    // if (cardElement) {
        const index = Number( e.target.id.split('_')[1])
 
       const obj = tracomStudents.find(item => item.id ===index)
-console.log(obj.likes)
-
-        obj.likes 
-console.log(obj.likes)
+        obj.likes +=1
         tracomStudents[index-1] = obj
 
         //Update localstorage
@@ -147,8 +137,18 @@ console.log(obj.likes)
         populateCards()
         // console.log("XXXXXXXXXXXXXXXXXXXXXX",obj)
 
-  }
-}
-}
+  // }
+// }
+    }
 
 }
+
+
+// implement search
+const searchInput = document.getElementById("searchuser")
+searchInput.addEventListener("input", (e)=>{
+  const searchTerm = e.target.value.toLowerCase();
+  const filteredStudents = tracomStudents.filter(item => item.name.toLowerCase().includes(searchTerm))
+  populateCards(filteredStudents)
+})
+// implement filters e.g more likes , asc or desc

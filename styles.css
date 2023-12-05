@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/proxima-nova-font@1.0.0/dist/css/proxima-nova.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
   margin: 0 auto;
@@ -8,7 +8,7 @@
 
 body {
   margin: 0;
-  font-family: "Proxima Nova", "Arial", sans-serif;
+  font-family: 'Roboto', sans-serif; 
   background-color: #fafafa;
 }
 
