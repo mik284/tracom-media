@@ -21,6 +21,29 @@ let data= [
      {
         id: 3,
         name: "Kariuki",
+        status:"content creator",
+        postImg:["/post.jpg", "/images/cat.jpg"],
+        likes: 0,
+        comment:""
+    } 
+    ,{
+        id: 4,
+        name: "winnie",
+        status:"software dev",
+        postImg:["/post.jpg", "/images/cat.jpg"],
+        likes: 0,
+        comment:""
+    },{
+        id: 5,
+        name: "manasses",
+        status:"software dev",
+        postImg:["/post.jpg", "/images/cat.jpg"],
+        likes: 0,
+        comment:""
+    },
+     {
+        id: 6,
+        name: "Brian",
         status:"software dev",
         postImg:["/post.jpg", "/images/cat.jpg"],
         likes: 0,
@@ -34,7 +57,7 @@ if(!localStorage.getItem("tracomStudents")){
     localStorage.setItem("tracomStudents",JSON.stringify(data))
 }
 
-
+// localStorage.clear()
 
 
 let stringData=localStorage.getItem("tracomStudents")
@@ -148,7 +171,27 @@ function getClickedCard(e){
 const searchInput = document.getElementById("searchuser")
 searchInput.addEventListener("input", (e)=>{
   const searchTerm = e.target.value.toLowerCase();
-  const filteredStudents = tracomStudents.filter(item => item.name.toLowerCase().includes(searchTerm))
+    const filteredStudents = tracomStudents.filter(item => item.name.toLowerCase().includes(searchTerm) || item.status.toLowerCase().includes(searchTerm))
   populateCards(filteredStudents)
 })
+
+
+
+
 // implement filters e.g more likes , asc or desc
+//////
+// let likeArray = []
+// for (let i =0; i<=tracomStudents.length-1;i++){
+//   likeArray.push(tracomStudents[i].likes)
+// }
+// console.log(likeArray)
+// likeArray.reduce((totalLikes,currentLikes)=> totalLikes +currentLikes,0)
+
+// const likeArray2 = [2, 5, 8, 3, 1];
+// console.log(likeArray2)
+
+// likeArray2.reduce((totalLikes, currentLikes) => {
+//   const newTotalLikes = totalLikes + currentLikes;
+//   console.log(`Increment: ${currentLikes}, New Total Likes: ${newTotalLikes}`);
+//   return newTotalLikes;
+// }, 0);
