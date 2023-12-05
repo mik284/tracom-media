@@ -25,18 +25,33 @@ let data= [
         postImg:["/post.jpg", "/images/cat.jpg"],
         likes: 0,
         comment:""
+    },
+     {
+        id: 4,
+        name: "Brian",
+        status:"software dev",
+        postImg:["/post.jpg", "/images/cat.jpg"],
+        likes: 0,
+        comment:""
     }
 ]
 if(!localStorage.getItem("tracomStudents")){
 
     localStorage.setItem("tracomStudents",JSON.stringify(data))
 }
+
+
+
+
 let stringData=localStorage.getItem("tracomStudents")
 let tracomStudents = JSON.parse(stringData)
+
+
 function populateCards(){
     let totalStudents=""
     tracomStudents.map((e)=>{
-    let postCard = `<div class="b-card card">
+    let postCard =
+     `<div class="b-card card">
             <div class="b-head-section">
               <div class="b-head-info">
                 <div class="b-avatar">
@@ -107,6 +122,7 @@ container.addEventListener("click", getClickedCard
 // }
 
 function getClickedCard(e){
+  
     
     if(e.target.classList.contains("fa-solid", "fa-heart")){
         for (let i = 0; i < tracomStudents.length-1; i++) {
@@ -119,18 +135,20 @@ function getClickedCard(e){
        const index = Number( e.target.id.split('_')[1])
 
       const obj = tracomStudents.find(item => item.id ===index)
-        obj.likes +=1
+console.log(obj.likes)
 
+        obj.likes 
+console.log(obj.likes)
         tracomStudents[index-1] = obj
 
         //Update localstorage
         localStorage.setItem("tracomStudents",JSON.stringify(tracomStudents))
 
         populateCards()
-        console.log("XXXXXXXXXXXXXXXXXXXXXX",obj)
+        // console.log("XXXXXXXXXXXXXXXXXXXXXX",obj)
 
   }
 }
-    }
+}
 
 }
