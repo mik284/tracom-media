@@ -1,5 +1,4 @@
 const container = document.getElementById("b-container")
-let count = document.getElementById("count")
 
 let data= [
     {
@@ -109,45 +108,13 @@ function populateCards(students = tracomStudents){
 
 populateCards()
 
+container.addEventListener("click", getClickedCard);
 
-
-
-
-
-
-
-// let initialLikes = localStorage.getItem("likes") || 0;
-// count.innerHTML = initialLikes;
-
-container.addEventListener("click", getClickedCard
-);
-
-// (e)=>{
-// const clickedElement = e.target;
-//   const isHeartIcon = clickedElement.classList.contains("fa-solid", "fa-heart");
-
-//   if (isHeartIcon) {
-//     clickedElement.style.color = "red";
-
-//     let currentLikes = parseInt(localStorage.getItem("likes")) || 0;
-//     currentLikes++;
-    
-//     localStorage.setItem("likes", currentLikes);
-//     count.innerHTML = currentLikes;
-//   }
-// }
 
 function getClickedCard(e){
   
     
     if(e.target.classList.contains("fa-solid", "fa-heart")){
-        // for (let i = 0; i < tracomStudents.length-1; i++) {
-            // const cardID = 'card_' + i;
-            // Target the card by its dynamic ID
-            // const cardElement = document.getElementById(cardID);
-            
-            // Now you can work with the specific card element
-    // if (cardElement) {
        const index = Number( e.target.id.split('_')[1])
 
       const obj = tracomStudents.find(item => item.id ===index)
@@ -179,19 +146,3 @@ searchInput.addEventListener("input", (e)=>{
 
 
 // implement filters e.g more likes , asc or desc
-//////
-// let likeArray = []
-// for (let i =0; i<=tracomStudents.length-1;i++){
-//   likeArray.push(tracomStudents[i].likes)
-// }
-// console.log(likeArray)
-// likeArray.reduce((totalLikes,currentLikes)=> totalLikes +currentLikes,0)
-
-// const likeArray2 = [2, 5, 8, 3, 1];
-// console.log(likeArray2)
-
-// likeArray2.reduce((totalLikes, currentLikes) => {
-//   const newTotalLikes = totalLikes + currentLikes;
-//   console.log(`Increment: ${currentLikes}, New Total Likes: ${newTotalLikes}`);
-//   return newTotalLikes;
-// }, 0);
